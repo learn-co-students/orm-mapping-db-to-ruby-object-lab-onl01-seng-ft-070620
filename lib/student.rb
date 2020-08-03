@@ -11,8 +11,8 @@ class Student
 
   def self.all
     sql = <<-SQL
-    SELECT *
-    FROM students
+      SELECT *
+      FROM students
     SQL
 
     DB[:conn].execute(sql).collect do |row| 
@@ -22,9 +22,9 @@ class Student
 
   def self.all_students_in_grade_9
     sql = <<-SQL
-    SELECT *
-    FROM students
-    WHERE grade = 9
+      SELECT *
+      FROM students
+      WHERE grade = 9
     SQL
 
     DB[:conn].execute(sql).collect do |row|
@@ -34,9 +34,9 @@ class Student
 
   def self.students_below_12th_grade
     sql = <<-SQL
-    SELECT *
-    FROM students
-    WHERE grade < 12
+      SELECT *
+      FROM students
+      WHERE grade < 12
     SQL
 
     DB[:conn].execute(sql).collect do |row|
@@ -46,10 +46,10 @@ class Student
 
   def self.first_X_students_in_grade_10(num)
     sql = <<-SQL
-    SELECT *
-    FROM students
-    WHERE grade = 10
-    LIMIT ?
+      SELECT *
+      FROM students
+      WHERE grade = 10
+      LIMIT ?
     SQL
 
     DB[:conn].execute(sql, num).collect do |row|
@@ -59,10 +59,10 @@ class Student
 
   def self.first_student_in_grade_10
     sql = <<-SQL
-    SELECT *
-    FROM students
-    WHERE grade = 10
-    LIMIT 1
+      SELECT *
+      FROM students
+      WHERE grade = 10
+      LIMIT 1
     SQL
 
     DB[:conn].execute(sql).collect do |row|
@@ -72,9 +72,9 @@ class Student
 
   def self.all_students_in_grade_X(num)
     sql = <<-SQL
-    SELECT *
-    FROM students
-    WHERE grade = ?
+      SELECT *
+      FROM students
+      WHERE grade = ?
     SQL
 
     DB[:conn].execute(sql, num).collect do |row| 
@@ -84,10 +84,10 @@ class Student
 
   def self.find_by_name(name)
     sql = <<-SQL
-    SELECT *
-    FROM students
-    WHERE name = ?
-    LIMIT 1 
+      SELECT *
+      FROM students
+      WHERE name = ?
+      LIMIT 1 
     SQL
 
     DB[:conn].execute(sql, name).collect do |row|
